@@ -1,9 +1,11 @@
-import './CatalogCarousel.css';
 export type CatalogItem = {
-    id: string;
-    title: string;
-    description: string;
-    thumbnail: string;
+    id?: string;
+    title?: string;
+    description?: string;
+    thumbnail?: string;
+    ContentName?: string;
+    ShortDescription?: string;
+    ThumbnailImagePath?: string;
     detailsUrl?: string;
     metadata?: Record<string, any>;
 };

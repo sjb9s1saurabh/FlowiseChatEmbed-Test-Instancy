@@ -9,7 +9,7 @@ type TopicBubbleProps = {
         avatarSrc?: string;
     };
     fontSize?: number;
-    handleSubmit: (message: string, payload: any, questionData: any) => void;
+    handleSubmit: (message: string, payload: any, humanInput: any, questionData: any) => void;
 };
 export declare const TopicBubble: (props: TopicBubbleProps) => import("solid-js").JSX.Element;
 export {};
