@@ -27,7 +27,7 @@ type FilePreview = {
     preview: string;
     type: string;
 };
-type messageType = 'apiMessage' | 'userMessage' | 'usermessagewaiting' | 'leadCaptureMessage';
+type messageType = 'apiMessage' | 'userMessage' | 'usermessagewaiting' | 'leadCaptureMessage' | 'topicMessage';
 type ExecutionState = 'INPROGRESS' | 'FINISHED' | 'ERROR' | 'TERMINATED' | 'TIMEOUT' | 'STOPPED';
 export type IAgentReasoning = {
     agentName?: string;
@@ -50,6 +50,9 @@ export type IAction = {
         reject: string;
         toolCalls: any[];
     };
+    type?: string;
+    message?: string;
+    isInitialMessage?: boolean;
 };
 export type FileUpload = Omit<FilePreview, 'preview'>;
 export type AgentFlowExecutedData = {
@@ -77,6 +80,13 @@ export type MessageType = {
     id?: string;
     followUpPrompts?: string;
     dateTime?: string;
+    contentId?: string | null;
+    topicId?: string | null;
+    topicType?: string;
+    questionOptions?: any;
+    optionNextNodes?: any;
+    metadata?: any;
+    topicsList?: any;
 };
 type observerConfigType = (accessor: string | boolean | object | MessageType[]) => void;
 export type observersConfigType = Record<'observeUserInput' | 'observeLoading' | 'observeMessages', observerConfigType>;
